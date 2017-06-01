@@ -1,6 +1,7 @@
-//Explorer.js is used for installing the initial database
+//Explorer.js is used for installing the initial database, imported by install.js
 console.log("Explorer Loaded");
 var request = require('request-promise');
+var explore = require('./explorer.js');
 var cheerio =  require('cheerio');
 
 
