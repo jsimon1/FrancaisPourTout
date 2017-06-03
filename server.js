@@ -2,8 +2,23 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var install = require('./install.js');
 const fs = require('fs');
+const yargs = require('yargs');
+
+// yargs init
+//
+const argv = yargs
+  .command('install', 'Initial database installation, comes with 500 verbs and their conjugations')
+  .help()
+  .argv;
+
+var cmd = argv._[0];
+
+// Command Line handlers
+if (cmd === 'install') {
+  var install = require('./dbInstall/install.js');
+  install.createDatabase();
+}
 
 // server route handler
 app.get('/', function(req, res){
