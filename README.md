@@ -11,6 +11,11 @@ explorer.js - Utility functions for webcrawling, separate from install.js which 
 
 src/wireframes - Lo-fi mockup of user interface designs
 
+src - What is to become the JouezFrancais User Interface
+
+server - Contains models and controllers that define the API
+       - Authentication with bcrypt
+
 
 
 Sources:
