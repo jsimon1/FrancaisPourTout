@@ -21,9 +21,9 @@ if (cmd === 'install') {
 }
 
 // server route handler
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-});
+
+var routes = require('./routes/router');
+app.use('/', routes);
 
 // start server
 http.listen(3000, function(){
