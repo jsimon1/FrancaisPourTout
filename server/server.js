@@ -4,6 +4,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 const fs = require('fs');
 const yargs = require('yargs');
+var routes = require('./routes/router');
 
 // yargs init
 //
@@ -21,9 +22,7 @@ if (cmd === 'install') {
 }
 
 // server route handler
-
-var routes = require('./routes/router');
-app.use('/', routes);
+app.use('./api', routes);
 
 // start server
 http.listen(3000, function(){
