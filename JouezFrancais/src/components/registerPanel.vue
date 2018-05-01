@@ -3,12 +3,12 @@
 	<div class="row">
 		<form class="col s12">
 			<div class="row">
-				<div class="input-field col s6">
+				<!--<div class="input-field col s6">
 					<input placeholder="First" id="first_name" type="text" class="validate">
 				</div>
 				<div class="input-field col s6">
 					<input placeholder="Last" id="last_name" type="text" class="validate">
-				</div>
+				</div>-->
 				
 				<div class="input-field col s12">
 					<input placeholder="Username" id="username" type="text" class="validate">

@@ -19,7 +19,7 @@
 							<a href="#login">Log in</a>
 						</li>
 						<li v-if="isLoggedIn">
-							<a href="#profile">{{username}}</a>
+							<a href="#profile">jeremyyy</a>
 						</li>
 					</ul>
 				</div>
@@ -33,7 +33,38 @@
 	<div style="position:absolute;left:50%;top:10%;bottom:10%;border-left:1px solid red;"></div>
 	<div style="position:absolute;left:60%;right:10%;top:15%;bottom:15%;float:right;">
 		<div class="profilePanel" v-if="isLoggedIn">
-			<profilePanel/>
+	<div class="row">
+			<h3> Je connaitre</h3>
+			<div class="row">
+				<div class="input-field col s6">
+					<input placeholder="Present" id="present" type="text" class="validate">
+				</div>
+				<div class="input-field col s6">
+					<input placeholder="Past" id="past" type="text" class="validate">
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<input placeholder="Imperfect" id="imp" type="text" class="validate">
+				</div>
+				<div class="input-field col s6">
+					<input placeholder="Future" id="future" type="text" class="validate">
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<input placeholder="Conditional" id="conditional" type="text" class="validate">
+				</div>
+				<div class="input-field col s6">
+					<input placeholder="Subjunctive" id="subj" type="text" class="validate">
+				</div>
+			</div>
+			<div class="row">
+				<button class="btn waves-effect waves-light z-depth-2 col s3 push-s8" name="conj_next" v-on:click = "update_form()"> Next
+				<i class="material-icons right">send</i></button>
+			</div>
+	</div>
+</div>
 		</div>
 		<div class="row" v-if="!isLoggedIn">
 			<div class="col s12">
@@ -66,6 +97,7 @@
 	import registerPanel from './components/registerPanel'
 	import modulePanel from './components/modulePanel'
 	import profilePanel from './components/profilePanel'
+	//import conjugate from './components/modulePanel'
 	
 	export default {
 		name: 'homepage',
@@ -77,8 +109,20 @@
 		},
 		data() {
 			return {
-				isLoggedIn: false,
-				username: "jeremyyy"
+				isLoggedIn: true,
+				conjugate: true,
+				username: "jeremyyy",
+				update_form: function() {
+					document.getElementById("present").setAttribute("style", "background-color: #009688;")
+					document.getElementById("past").setAttribute("style", "background-color: #009688;")
+					document.getElementById("imp").setAttribute("style", "background-color: #d50000;")
+					document.getElementById("imp").setAttribute("title", "connaissais")
+					document.getElementById("future").setAttribute("style", "background-color: #009688;")
+					document.getElementById("conditional").setAttribute("style", "background-color: #009688;")
+					document.getElementById("subj").setAttribute("style", "background-color: #d50000;")
+					document.getElementById("subj").setAttribute("title", "connaisse")
+					setTimeout(function() {}, 10000)
+				}
 			}
 		}
 	}

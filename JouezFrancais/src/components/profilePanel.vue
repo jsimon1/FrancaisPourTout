@@ -1,6 +1,6 @@
 <template>
 <div class="profilePanel">
-Show my user information.
+	Show my user information.
 </div>
 </template>
 <script>

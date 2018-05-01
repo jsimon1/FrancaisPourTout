@@ -6,8 +6,8 @@ import homepage from './homepage'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
-  el: '#homepage',
-  components: { homepage },
-  template: '<homepage/>'
+var home = new Vue({
+	el: '#homepage',
+	components: { homepage },
+	template: '<homepage/>'
 })
