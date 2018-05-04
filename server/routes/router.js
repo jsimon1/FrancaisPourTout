@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var Lesson = require('../models/lesson')
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-//POST route for updating data
-router.post('/', function (req, res, next) {
+//POST route for login/register
+router.post('/login', function (req, res, next) {
   // confirm that user typed same password twice
   if (req.body.password !== req.body.passwordConf) {
     var err = new Error('Passwords do not match.');
@@ -33,7 +34,7 @@ router.post('/', function (req, res, next) {
         return next(error);
       } else {
         req.session.userId = user._id;
-        return res.redirect('/');
+        return res.redirect('/index.html');
       }
     });
 
@@ -45,7 +46,7 @@ router.post('/', function (req, res, next) {
         return next(err);
       } else {
         req.session.userId = user._id;
-        return res.redirect('/');
+        return res.redirect('/index.html');
       }
     });
   } else {
@@ -53,4 +54,19 @@ router.post('/', function (req, res, next) {
     err.status = 400;
     return next(err);
   }
-})
+});
+
+// User requests lesson
+router.post('/lesson/new', function (req, res, next) {
+  // If lesson doesn't exist for user yet, add lesson requested to user's dashboard of lessons
+  if(!User.hasLesson(req.lesson)) {
+    User.addLesson(req.module);
+  }
+  // Otherwise, just send back data
+  Lesson.handleLesson(req,res,next);
+});
+
+// User finishes lesson
+router.post('/lesson/finish', function (req, res, next) {
+
+});
